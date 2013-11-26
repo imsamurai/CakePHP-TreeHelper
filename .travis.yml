@@ -28,7 +28,7 @@ before_script:
     }" > ../cakephp/app/Config/database.php
 
 script:
-  - ./lib/Cake/Console/cake test TreeHelper TreeHelper --stderr
+  - ./lib/Cake/Console/cake test TreeHelper View/Helper/TreeHelper --stderr
 
 notifications:
   email: im.samuray@gmail.com
