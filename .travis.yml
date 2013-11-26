@@ -1,0 +1,35 @@
+language: php
+
+php:
+  - 5.4
+  - 5.5
+
+env:
+  - CAKE_VERSION=2.3.10
+  - CAKE_VERSION=2.4.2
+  - CAKE_VERSION=master
+
+before_script:
+  - mysql -e 'create database test;'
+  - git clone git://github.com/cakephp/cakephp ../cakephp && cd ../cakephp && git checkout $CAKE_VERSION
+  - cp -R ../CakePHP-TreeHelper plugins/TreeHelper
+  - chmod -R 777 ../cakephp/app/tmp
+  - set +H
+  - echo "<?php
+    class DATABASE_CONFIG {
+    public \$test = array(
+        'datasource' => 'Database/Mysql',
+        'host' => '127.0.0.1',
+        'login' => 'travis',
+        'database' => 'test',
+        'prefix' => '',
+        'encoding' => 'utf8'
+    );
+
+    }" > ../cakephp/app/Config/database.php
+
+script:
+  - ./lib/Cake/Console/cake test TreeHelper TreeHelper --stderr
+
+notifications:
+  email: im.samuray@gmail.com
