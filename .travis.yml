@@ -10,7 +10,6 @@ env:
   - CAKE_VERSION=master
 
 before_script:
-  - mysql -e 'create database test;'
   - git clone git://github.com/cakephp/cakephp ../cakephp && cd ../cakephp && git checkout $CAKE_VERSION
   - cp -R ../CakePHP-TreeHelper plugins/TreeHelper
   - chmod -R 777 ../cakephp/app/tmp
