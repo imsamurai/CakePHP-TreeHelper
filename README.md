@@ -1,4 +1,4 @@
-CakePHP-TreeHelper
+CakePHP-TreeHelper [![Build Status](https://travis-ci.org/imsamurai/CakePHP-TreeHelper.png)](https://travis-ci.org/imsamurai/CakePHP-TreeHelper)
 ==================
 
 Helper for building javascript tree from tree data
