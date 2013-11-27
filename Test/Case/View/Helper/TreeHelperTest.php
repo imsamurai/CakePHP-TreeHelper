@@ -107,7 +107,7 @@ class TreeHelperTest extends CakeTestCase {
 		$dataObject = json_decode(json_encode($data));
 		$dataObject2 = TreeHelperTestObject::create($data);
 
-		$template = '<ul class="chains-tree"><li data-expanded="true"><label for="">1. %s</label><ul><li><label for="">1.1. %s</label></li><li><label for="">1.2. %s</label><ul><li><label for="">1.2.1. %s</label></li></ul></li></ul></li><li data-expanded="true"><label for="">2. %s</label></li></ul>';
+		$template = '<ul class="jq-tree"><li data-expanded="true"><label for="">1. %s</label><ul><li><label for="">1.1. %s</label></li><li><label for="">1.2. %s</label><ul><li><label for="">1.2.1. %s</label></li></ul></li></ul></li><li data-expanded="true"><label for="">2. %s</label></li></ul>';
 
 		return array(
 			//data, template, options, result
