@@ -68,7 +68,7 @@ class TreeHelper extends AppHelper {
 		} else {
 			$assets .= $this->Html->css($styles, null, compact('inline'));
 		}
-		$assets .= $this->Html->scriptBlock('$(".jq-tree").Tree();');
+		$assets .= $this->Html->scriptBlock('$(".jq-tree").Tree();', array('safe' => false, 'inline' => $inline));
 		return $assets;
 	}
 
