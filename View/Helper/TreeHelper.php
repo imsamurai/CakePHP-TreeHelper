@@ -68,6 +68,7 @@ class TreeHelper extends AppHelper {
 		} else {
 			$assets .= $this->Html->css($styles, null, compact('inline'));
 		}
+		$assets .= $this->Html->scriptBlock('$(".jq-tree").Tree();');
 		return $assets;
 	}
 
@@ -135,7 +136,7 @@ class TreeHelper extends AppHelper {
 			$number++;
 		}
 		//возвращаем дерево
-		return $this->Html->tag('ul', $tree, array('class' => ($level === 0) ? 'chains-tree' : null));
+		return $this->Html->tag('ul', $tree, array('class' => ($level === 0) ? 'jq-tree' : null));
 	}
 
 }

@@ -56,6 +56,9 @@
 		 */
 		Tree: function() {
 			$(this).each(function() {
+				if (this.Tree) {
+					return this;
+				}
 				var self = this;
 				//var controls = $(TREE_CONTROLS_CODE);
 
