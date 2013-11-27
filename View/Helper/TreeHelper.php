@@ -81,17 +81,21 @@ class TreeHelper extends AppHelper {
 	protected function _toCallable($callback) {
 		if (is_callable($callback)) {
 			return $callback;
-		} else if (is_string($callback)) {
-			return function($item, $level) use($callback) {
-				if (isset($item[$callback])) {
-					return $item[$callback];
-				} else {
-					return $callback($item, $level);
-				}
-			};
-		} else {
-			throw InvalidArgumentException('Callback must be callable or string (Hash path)');
 		}
+		if (!is_string($callback)) {
+			throw new InvalidArgumentException('Callback must be callable or string (Hash path)');
+		}
+		return function($item) use($callback) {
+			if ((is_array($item) || $item instanceof ArrayAccess) && isset($item[$callback])) {
+				return $item[$callback];
+			} else if (is_object($item) && isset($item->{$callback})) {
+				return $item->{$callback};
+			} else if (is_object($item) && method_exists($item, $callback)) {
+				return $item->{$callback}();
+			} else {
+				return 'UNKNOWN';
+			}
+		};
 	}
 
 	/**
@@ -122,12 +126,8 @@ class TreeHelper extends AppHelper {
 			//инициализируем данные узла
 			$item = $_prefix . ' ' . $getName($dataPart, $level);
 			$item = $this->Form->label(null, $item);
-			$childrens = $getChildrens($dataPart, $level);
-			//если узел содержит потомков
-			if ($childrens) {
-				//добавляем к узлу дерево его потомков
-				$item .= $this->_build($childrens, $getName, $getChildrens, $expandTo, $level + 1, $_prefix);
-			}
+			//добавляем к узлу дерево его потомков
+			$item .= $this->_build($getChildrens($dataPart, $level), $getName, $getChildrens, $expandTo, $level + 1, $_prefix);
 			//определяем должен ли узел быть развернутым
 			$expanded = ($level < $expandTo) ? 'true' : null;
 			//добавляем узел в дерево, задаем развернут ли узел
