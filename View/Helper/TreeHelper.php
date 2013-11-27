@@ -59,8 +59,15 @@ class TreeHelper extends AppHelper {
 	 * @return string|void
 	 */
 	protected function _buildAssets($inline) {
-		$assets = $this->Html->script('/tree_helper/vendor/jquery-tree/jQuery.Tree.custom.js', compact('inline'));
-		$assets .= $this->Html->css('/tree_helper/vendor/jquery-tree/css/jQuery.Tree.custom.css', compact('inline'));
+		$scripts = array('/tree_helper/vendor/jquery-tree/jQuery.Tree.custom.js');
+		$styles = array('/tree_helper/vendor/jquery-tree/jQuery.Tree.custom.js');
+		$assets = $this->Html->script($scripts, compact('inline'));
+		$cake2_4 = version_compare(Configure::version(), 2.4, '>=');
+		if ($cake2_4) {
+			$assets .= $this->Html->css($styles, compact('inline'));
+		} else {
+			$assets .= $this->Html->css($styles, null, compact('inline'));
+		}
 		return $assets;
 	}
 
