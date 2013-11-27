@@ -60,7 +60,7 @@ class TreeHelper extends AppHelper {
 	 */
 	protected function _buildAssets($inline) {
 		$scripts = array('/tree_helper/vendor/jquery-tree/jQuery.Tree.custom.js');
-		$styles = array('/tree_helper/vendor/jquery-tree/jQuery.Tree.custom.js');
+		$styles = array('/tree_helper/vendor/jquery-tree/css/jQuery.Tree.custom.css');
 		$assets = $this->Html->script($scripts, compact('inline'));
 		$cake2_4 = version_compare(Configure::version(), 2.4, '>=');
 		if ($cake2_4) {
