@@ -67,7 +67,7 @@
 						.addClass(CLASS_JQUERY_TREE)
 						.before(TREE_CONTROLS_CODE);
 				//.prev('.' + CLASS_JQUERY_TREE_CONTROLS)
-				console.log($(this));
+				//console.log($(this));
 				var controls = $(this).prev('.' + CLASS_JQUERY_TREE_CONTROLS);
 
 				$('.' + CLASS_JQUERY_TREE_COLLAPSE_ALL, controls).click(function() {
