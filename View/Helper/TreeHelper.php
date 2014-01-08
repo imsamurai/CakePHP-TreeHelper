@@ -136,7 +136,7 @@ class TreeHelper extends AppHelper {
 			$number++;
 		}
 		//возвращаем дерево
-		return $this->Html->tag('ul', $tree, array('class' => ($level === 0) ? 'jq-tree' : null));
+		return empty($tree) ? '' : $this->Html->tag('ul', $tree, array('class' => ($level === 0) ? 'jq-tree' : null));
 	}
 
 }
