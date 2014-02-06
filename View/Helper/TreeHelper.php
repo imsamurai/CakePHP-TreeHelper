@@ -49,7 +49,7 @@ class TreeHelper extends AppHelper {
 				$data, $this->_toCallable($_options['getName']), $this->_toCallable($_options['getChildrens']), $_options['expandTo']
 		);
 		//возвращаем дерево и скрипты/стили
-		return $tree . $this->_buildAssets((bool) $_options['inline']);
+		return $tree . $this->_buildAssets((bool)$_options['inline']);
 	}
 
 	/**
@@ -62,8 +62,8 @@ class TreeHelper extends AppHelper {
 		$scripts = array('/tree_helper/vendor/jquery-tree/jQuery.Tree.custom.js');
 		$styles = array('/tree_helper/vendor/jquery-tree/css/jQuery.Tree.custom.css');
 		$assets = $this->Html->script($scripts, compact('inline'));
-		$cake2_4 = version_compare(Configure::version(), 2.4, '>=');
-		if ($cake2_4) {
+		$cake2x4 = version_compare(Configure::version(), 2.4, '>=');
+		if ($cake2x4) {
 			$assets .= $this->Html->css($styles, compact('inline'));
 		} else {
 			$assets .= $this->Html->css($styles, null, compact('inline'));
@@ -89,9 +89,9 @@ class TreeHelper extends AppHelper {
 		return function($item) use($callback) {
 			if ((is_array($item) || $item instanceof ArrayAccess) && isset($item[$callback])) {
 				return $item[$callback];
-			} else if (is_object($item) && isset($item->{$callback})) {
+			} elseif (is_object($item) && isset($item->{$callback})) {
 				return $item->{$callback};
-			} else if (is_object($item) && method_exists($item, $callback)) {
+			} elseif (is_object($item) && method_exists($item, $callback)) {
 				return $item->{$callback}();
 			} else {
 				return 'UNKNOWN';

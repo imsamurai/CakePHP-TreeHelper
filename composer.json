@@ -1,0 +1,32 @@
+{
+  "name": "imsamurai/tree-helper",
+  "description": "Helper for building javascript tree from tree data",
+  "type": "cakephp-plugin",
+  "keywords": [
+    "cakephp",
+    "tree",
+	"helper",
+    "plugin"
+  ],
+  "homepage": "http://github.com/imsamurai/CakePHP-TreeHelper",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Shamray Alexander",
+      "email": "im.samuray@gmail.com",
+      "homepage": "https://imsamurai.me",
+      "role": "Maintainer"
+    }
+  ],
+  "require": {
+    "composer/installers": "*"
+  },
+  "support": {
+    "email": "im.samuray@gmail.com",
+    "issues": "https://github.com/imsamurai/CakePHP-TreeHelper/issues",
+    "source": "https://github.com/imsamurai/CakePHP-TreeHelper"
+  },
+  "extra": {
+    "installer-name": "TreeHelper"
+  }
+}

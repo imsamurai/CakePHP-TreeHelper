@@ -116,11 +116,11 @@ class TreeHelperTest extends CakeTestCase {
 			//set #1
 			array($data, $template, array(
 					'getName' => function($dataPart) {
-				return implode('|', $dataPart['details']);
-			},
+						return implode('|', $dataPart['details']);
+					},
 					'getChildrens' => function($dataPart) {
-				return $dataPart['childrens'];
-			}
+						return $dataPart['childrens'];
+					}
 				), array('item1_detail1|item1_detail2|item1_detail3', 'item3_detail1|item3_detail2|item3_detail3', 'item4_detail1|item4_detail2|item4_detail3', 'item5_detail1|item5_detail2|item5_detail3', 'item2_detail1|item2_detail2|item2_detail3')
 			),
 			//set #2
