@@ -3,12 +3,13 @@ language: php
 php:
   - 5.4
   - 5.5
+  - hhvm
 
 env:
   global:
     - PLUGIN_NAME=TreeHelper
     - PLUGIN_PATH=Plugin/TreeHelper
-    - REQUIRE=""
+    - REQUIRE="phpunit/phpunit:3.7.31"
     - DB=mysql
     - CAKE_VERSION=2.4
   matrix:
@@ -33,6 +34,7 @@ before_script:
     - ../travis/before_script.sh
     - if [ "$PHPCS" != 1 ]; then
             echo "
+                require_once APP . DS . 'vendor' . DS . 'phpunit' . DS . 'phpunit' . DS . 'PHPUnit' . DS . 'Autoload.php';
                 CakePlugin::load('TreeHelper');
             " >> ../cakephp/app/Config/bootstrap.php;
       fi
