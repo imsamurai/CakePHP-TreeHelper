@@ -126,7 +126,7 @@ class TreeHelper extends AppHelper {
 			$_prefix = $prefix . $number . '.';
 			//инициализируем данные узла
 			$item = $_prefix . ' ' . $getName($dataPart, $level);
-			$item = $this->Form->label(null, $item);
+			$item = $this->Form->label(null, $item, array('for' => ''));
 			//добавляем к узлу дерево его потомков
 			$item .= $this->_build($getChildrens($dataPart, $level), $getName, $getChildrens, $expandTo, $level + 1, $_prefix);
 			//определяем должен ли узел быть развернутым

@@ -39,6 +39,7 @@ class TreeHelperTest extends CakeTestCase {
 	 * @dataProvider treeProvider
 	 */
 	public function testBuild($data, $template, $options, $result) {
+		$this->TreeHelper->Form->input('blahblah');
 		$tree = $this->TreeHelper->build($data, $options);
 		$expected = vsprintf($template, $result);
 		if (empty($options['inline'])) {
