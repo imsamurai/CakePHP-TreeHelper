@@ -19,7 +19,8 @@
     }
   ],
   "require": {
-    "composer/installers": "*"
+    "composer/installers": "*",
+    "imsamurai/array-object-advanced": ">=1.0.5"
   },
   "support": {
     "email": "im.samuray@gmail.com",
