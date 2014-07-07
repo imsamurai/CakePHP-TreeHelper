@@ -99,6 +99,20 @@ class TreeCollectionNodeTest extends CakeTestCase {
 	public function testJsonSerialize(TreeCollectionNode $Node, array $output) {
 		$this->assertSame(json_encode($output, JSON_PRETTY_PRINT), json_encode($Node, JSON_PRETTY_PRINT));
 	}
+	
+	/**
+	 * Test isEquals
+	 * 
+	 * @param TreeCollectionNode $Node1
+	 * @param TreeCollectionNode $Node2
+	 * @param bool $equals
+	 * 
+	 * @dataProvider isEqualsProvider
+	 */
+	public function testIsEquals(TreeCollectionNode $Node1, TreeCollectionNode $Node2, $equals) {
+		$this->assertSame($equals, $Node1->isEquals($Node2));
+		$this->assertSame($equals, $Node2->isEquals($Node1));
+	}
 
 	/**
 	 * Data provider for testCreate, testSet
@@ -223,4 +237,67 @@ class TreeCollectionNodeTest extends CakeTestCase {
 		);
 	}
 
+	/**
+	 * Data provider for testIsEquals
+	 * 
+	 * @return array
+	 */
+	public function isEqualsProvider() {
+		return array(
+			//set #0
+			array(
+				//Node1
+				new TreeCollectionNode(1),
+				//Node2
+				new TreeCollectionNode(1),
+				//equals
+				true
+			),
+			//set #1
+			array(
+				//Node1
+				new TreeCollectionNode(2),
+				//Node2
+				new TreeCollectionNode(1),
+				//equals
+				false
+			),
+			//set #2
+			array(
+				//Node1
+				new TreeCollectionNode(1, new TreeCollection(array(2, 3, 4))),
+				//Node2
+				new TreeCollectionNode(1, new TreeCollection(array(2, 3, 4))),
+				//equals
+				true
+			),
+			//set #3
+			array(
+				//Node1
+				new TreeCollectionNode(1, new TreeCollection(array(2, 3, 4))),
+				//Node2
+				new TreeCollectionNode(1, new TreeCollection(array(2, 3, 4, 5))),
+				//equals
+				false
+			),
+			//set #4
+			array(
+				//Node1
+				new TreeCollectionNode(1, new TreeCollection(array(2, 3, 4)), new TreeCollectionNode(0)),
+				//Node2
+				new TreeCollectionNode(1, new TreeCollection(array(2, 3, 4)), new TreeCollectionNode(0)),
+				//equals
+				true
+			),
+			//set #5
+			array(
+				//Node1
+				new TreeCollectionNode(1, new TreeCollection(array(2, 3, 4)), new TreeCollectionNode(0)),
+				//Node2
+				new TreeCollectionNode(1, new TreeCollection(array(2, 3, 4)), new TreeCollectionNode(-1)),
+				//equals
+				false
+			),
+		);
+	}
 }

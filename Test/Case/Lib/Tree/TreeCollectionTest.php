@@ -107,6 +107,19 @@ class TreeCollectionTest extends CakeTestCase {
 	public function testFilterRecursive(callable $filter, TreeCollection $Tree, TreeCollection $OutputTree) {
 		$this->assertTrue($OutputTree->isEquals($Tree->filterRecursive($filter)));
 	}
+	
+	/**
+	 * Test remove node from tree
+	 * 
+	 * @param TreeCollection $Tree
+	 * @param TreeCollectionNode $Node
+	 * @param TreeCollection $OutputTree
+	 * 
+	 * @dataProvider removeProvider
+	 */
+	public function testRemove(TreeCollection $Tree, TreeCollectionNode $Node, TreeCollection $OutputTree) {
+		$this->assertTrue($Tree->remove($Node)->isEquals($OutputTree));
+	}
 
 	/**
 	 * Data provider for testCreate
@@ -542,4 +555,40 @@ class TreeCollectionTest extends CakeTestCase {
 		);
 	}
 
+	/**
+	 * Data provider for testRemove
+	 * 
+	 * @return array
+	 */
+	public function removeProvider() {
+		return array(
+			//set #0
+			array(
+				//Tree
+				new TreeCollection(array(1, 2, 3, 4)),
+				//Node
+				new TreeCollectionNode(2),
+				//OutputTree
+				new TreeCollection(array(1, 3, 4)),
+			),
+			//set #1
+			array(
+				//Tree
+				new TreeCollection(array(1, 2, 3, 4)),
+				//Node
+				new TreeCollectionNode(0),
+				//OutputTree
+				new TreeCollection(array(1, 2, 3, 4)),
+			),
+			//set #2
+			array(
+				//Tree
+				new TreeCollection,
+				//Node
+				new TreeCollectionNode(0),
+				//OutputTree
+				new TreeCollection,
+			),
+		);
+	}
 }

@@ -153,5 +153,15 @@ class TreeCollectionNode implements JsonSerializable {
 			'Childrens' => $this->getChildrens()
 		);
 	}
+	
+	/**
+	 * Returns true if current node is equals to $Node
+	 * 
+	 * @param TreeCollectionNode $Node
+	 * @return bool
+	 */
+	public function isEquals(TreeCollectionNode $Node) {
+		return json_encode($this) === json_encode($Node);
+	}
 
 }

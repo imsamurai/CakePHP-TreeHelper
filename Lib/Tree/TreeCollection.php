@@ -51,6 +51,20 @@ class TreeCollection implements IteratorAggregate, Countable, JsonSerializable {
 		$this->_Nodes[] = $Node;
 		return $this;
 	}
+	
+	/**
+	 * Remove node
+	 * 
+	 * @param TreeCollectionNode $Node
+	 * @return TreeCollection
+	 */
+	public function remove(TreeCollectionNode $Node) {
+		$this->_Nodes = $this->_Nodes
+				->filter(function(TreeCollectionNode $ThisNode) use ($Node) {
+			return !$Node->isEquals($ThisNode);
+		});
+		return $this;
+	}
 
 	/**
 	 * Returns tree nodes
@@ -119,14 +133,13 @@ class TreeCollection implements IteratorAggregate, Countable, JsonSerializable {
 	 * Apply filter to current nodes
 	 * 
 	 * @param callable $callback
-	 * @param bool $resetKeys
 	 * @return TreeCollection
 	 */
-	public function filter(callable $callback, $resetKeys = true) {
+	public function filter(callable $callback) {
 		return (new static)
 				->setNodes($this
 						->getNodes()
-						->filter($callback, $resetKeys)
+						->filter($callback, false)
 						);
 	}
 	
@@ -134,13 +147,12 @@ class TreeCollection implements IteratorAggregate, Countable, JsonSerializable {
 	 * Apply filter to current nodes and all children nodes
 	 * 
 	 * @param callable $callback
-	 * @param bool $resetKeys
 	 * @return TreeCollection
 	 */
-	public function filterRecursive(callable $callback, $resetKeys = true) {
-		$Tree = $this->filter($callback, $resetKeys);
+	public function filterRecursive(callable $callback) {
+		$Tree = $this->filter($callback);
 		foreach ($Tree as $Node) {
-			$Node->setChildrens($Node->getChildrens()->filterRecursive($callback, $resetKeys));
+			$Node->setChildrens($Node->getChildrens()->filterRecursive($callback));
 		}
 		return $Tree;
 	}
