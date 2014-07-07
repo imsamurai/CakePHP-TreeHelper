@@ -61,8 +61,8 @@ class TreeCollection implements IteratorAggregate, Countable, JsonSerializable {
 	public function remove(TreeCollectionNode $Node) {
 		$this->_Nodes = $this->_Nodes
 				->filter(function(TreeCollectionNode $ThisNode) use ($Node) {
-			return !$Node->isEquals($ThisNode);
-		});
+					return !$Node->isEquals($ThisNode);
+				});
 		return $this;
 	}
 
