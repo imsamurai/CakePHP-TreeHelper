@@ -120,6 +120,17 @@ class TreeCollectionNode implements JsonSerializable {
 		$this->getChildrens()->add($Children->setParent($this));
 		return $this;
 	}
+	
+	/**
+	 * Remove children
+	 * 
+	 * @param TreeCollectionNode $Children
+	 * @return TreeCollectionNode
+	 */
+	public function removeChildren(TreeCollectionNode $Children) {
+		$this->getChildrens()->remove($Children);
+		return $this;
+	}
 
 	/**
 	 * Element get

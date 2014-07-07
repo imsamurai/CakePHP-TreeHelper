@@ -87,6 +87,24 @@ class TreeCollectionNodeTest extends CakeTestCase {
 			$this->assertSame($Node, $SubNode->getParent());
 		}
 	}
+	
+	/**
+	 * Test remove childrens
+	 * 
+	 * @param TreeCollectionNode $Node
+	 * @param TreeCollectionNode[] $Childrens
+	 * 
+	 * @dataProvider childrenProvider
+	 */
+	public function testRemoveChildrens(TreeCollectionNode $Node, array $Childrens) {
+		foreach ($Childrens as $Children) {
+			$this->assertFalse($Node->hasChildrens());
+			$Node->addChildren($Children);
+			$this->assertTrue($Node->hasChildrens());
+			$Node->removeChildren($Children);
+			$this->assertFalse($Node->hasChildrens());
+		}
+	}
 
 	/**
 	 * Test json serialize
