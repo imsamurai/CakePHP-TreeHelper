@@ -109,6 +109,19 @@ class TreeCollectionTest extends CakeTestCase {
 	}
 	
 	/**
+	 * Test nodes recursive reverse filter
+	 * 
+	 * @param callable $filter
+	 * @param TreeCollection $Tree
+	 * @param TreeCollection $OutputTree
+	 * 
+	 * @dataProvider filterRecursiveReverseProvider
+	 */
+	public function testFilterRecursiveReverse(callable $filter, TreeCollection $Tree, TreeCollection $OutputTree) {
+		$this->assertTrue($OutputTree->isEquals($Tree->filterRecursiveReverse($filter)));
+	}
+	
+	/**
 	 * Test remove node from tree
 	 * 
 	 * @param TreeCollection $Tree
@@ -588,6 +601,127 @@ class TreeCollectionTest extends CakeTestCase {
 				new TreeCollectionNode(0),
 				//OutputTree
 				new TreeCollection,
+			),
+		);
+	}
+	
+	/**
+	 * Data provider for testFilterRecursiveReverse
+	 * 
+	 * @return array
+	 */
+	public function filterRecursiveReverseProvider() {
+		$filter1 = function(TreeCollectionNode $Node) {
+			return $Node->getElement() === 1;
+		};
+		
+		$filter2 = function(TreeCollectionNode $Node) {
+			return $Node->getElement() !== 1;
+		};
+		
+		$filter3 = function(TreeCollectionNode $Node) {
+			if ($Node->getElement() == 4) {
+				return false;				
+			} else {
+				return $Node->hasChildrens();
+			}
+		};
+		
+		$ComplexTree1 = function() {
+			$Node1 = new TreeCollectionNode(1);
+			$Node2 = new TreeCollectionNode(2);
+			$Node3 = new TreeCollectionNode(3);
+			$Node4 = new TreeCollectionNode(4);
+			$Node3->addChildren($Node4);
+			$Node1->addChildren($Node2);
+			$Node1->addChildren($Node3);
+			return (new TreeCollection)->add($Node1);
+		};
+		
+		$OutputComplexTree1filter1 = function() {
+			$Node1 = new TreeCollectionNode(1);
+			return (new TreeCollection)->add($Node1);
+		};
+		
+		$OutputComplexTree1filter2 = function() {
+			return new TreeCollection;
+		};
+		
+		$OutputComplexTree1filter3 = function() {
+			return new TreeCollection;
+		};
+
+		return array(
+			//set #0
+			array(
+				//filter
+				function() { 
+					return true; 
+				},
+				//Tree
+				new TreeCollection,
+				//OutputTree
+				new TreeCollection,
+			),
+			//set #1
+			array(
+				//filter
+				function() { 
+					return true; 
+				},
+				//Tree
+				new TreeCollection(array(1, 2, 3)),
+				//OutputTree
+				new TreeCollection(array(1, 2, 3)),
+			),
+			//set #2
+			array(
+				//filter
+				function() { 
+					return false; 
+				},
+				//Tree
+				new TreeCollection(array(1, 2, 3)),
+				//OutputTree
+				new TreeCollection,
+			),
+			//set #3
+			array(
+				//filter
+				function(TreeCollectionNode $Node) { 
+					return $Node->getElement() !== 2; 
+				},
+				//Tree
+				new TreeCollection(array(1, 2, 3)),
+				//OutputTree
+				new TreeCollection(array(1, 3)),
+			),
+			//set #4
+			array(
+				//filter
+				$filter1,
+				//Tree
+				$ComplexTree1(),
+				//OutputTree
+				$OutputComplexTree1filter1(),
+			),
+			//set #5
+			array(
+				//filter
+				$filter2,
+				//Tree
+				$ComplexTree1(),
+				//OutputTree
+				$OutputComplexTree1filter2(),
+			),
+			//set #6
+			array(
+				//filter
+				$filter3,
+				//Tree
+				$ComplexTree1(),
+				//OutputTree
+				$OutputComplexTree1filter3(),
 			),
 		);
 	}

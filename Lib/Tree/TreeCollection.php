@@ -158,6 +158,22 @@ class TreeCollection implements IteratorAggregate, Countable, JsonSerializable {
 	}
 	
 	/**
+	 * Apply filter to all children nodes and then to current nodes  
+	 * 
+	 * @param callable $callback
+	 * @return TreeCollection
+	 */
+	public function filterRecursiveReverse(callable $callback) {
+		return (new static)
+						->setNodes(
+								$this->getNodes()
+								->map(function(TreeCollectionNode $Node) use ($callback) {
+									return $Node->setChildrens($Node->getChildrens()->filterRecursiveReverse($callback));
+								})
+						)->filter($callback);
+	}
+	
+	/**
 	 * Returns true if current tree is equals to $Tree
 	 * 
 	 * @param TreeCollection $Tree
