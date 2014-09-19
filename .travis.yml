@@ -9,13 +9,14 @@ env:
   global:
     - PLUGIN_NAME=TreeHelper
     - PLUGIN_PATH=Plugin/TreeHelper
-    - REQUIRE="phpunit/phpunit:3.7.31"
+    - REQUIRE="imsamurai/cakephp-environment:dev-master phpdocumentor/phpdocumentor:2.*"
     - DB=mysql
     - CAKE_VERSION=2.4
+    - secure: Bw6oNjHjigPfdf47CUkcU4uPnu0lEW44ZCDWH8v9asmhVb9XcNOIdiDwzL5YivMPMWsIXJoJnElNpcJOcvZ97zAYuGvQAcBRgCzxCKVRBGPR8v7nFDvoMmW5flftDNXSCr1cA9fFmT1ptXQlW/Y9X/XcYf5769FG/5gBDpREQrE=
   matrix:
     - CAKE_VERSION=2.3
     - CAKE_VERSION=2.4
-    - CAKE_VERSION=master
+    - CAKE_VERSION=2.5
 
 matrix:
   include:
@@ -28,26 +29,20 @@ matrix:
     - php: 5.4
       env:
         - FOC_VALIDATE=1
-
+    - php: 5.5
+      env:
+        - PHPDOC=1
+        
 before_script:
-    - git clone https://github.com/FriendsOfCake/travis.git --depth 1 ../travis
-    - ../travis/before_script.sh
-    - if [ "$PHPCS" != 1 ]; then
-            echo "
-                require_once APP . DS . 'vendor' . DS . 'phpunit' . DS . 'phpunit' . DS . 'PHPUnit' . DS . 'Autoload.php';
-                CakePlugin::load('TreeHelper');
-            " >> ../cakephp/app/Config/bootstrap.php;
-      fi
-    - if [ "$PHPCS" = 1 ]; then
-        rm -rf ~/.phpenv/versions/$(phpenv version-name)/pear/PHP/CodeSniffer/Standards/CakePHP;
-        git clone https://github.com/imsamurai/cakephp-codesniffer.git --depth 1 ~/.phpenv/versions/$(phpenv version-name)/pear/PHP/CodeSniffer/Standards/CakePHP;
-      fi
+  - git clone git://github.com/imsamurai/travis-plugin-build.git --depth 1 travis
+  - chmod +x ./travis/*
+  - ./travis/before_script.sh
 
 script:
-  - ../travis/script.sh
+  - ./travis/script.sh
 
 after_success:
-  - ../travis/after_success.sh
+  - ./travis/after_success.sh
 
 notifications:
   email: im.samuray@gmail.com
