@@ -46,7 +46,7 @@ class TreeCollectionNode implements JsonSerializable {
 	}
 
 	/**
-	 * Constrictor
+	 * Constructor
 	 * 
 	 * @param mixed $Element
 	 * @param TreeCollection $Childrens
