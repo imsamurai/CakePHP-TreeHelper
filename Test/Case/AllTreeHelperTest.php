@@ -9,6 +9,9 @@
 
 /**
  * AllTreeHelperTest
+ * 
+ * @package TreeHelperTest
+ * @subpackage Tree
  */
 class AllTreeHelperTest extends PHPUnit_Framework_TestSuite {
 

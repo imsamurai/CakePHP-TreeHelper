@@ -15,7 +15,7 @@ App::uses('AppHelper', 'View/Helper');
  * @property FormHelper $Form Form helper
  * 
  * @package TreeHelper
- * @subpackage TreeHelper
+ * @subpackage View.Helper
  */
 class TreeHelper extends AppHelper {
 

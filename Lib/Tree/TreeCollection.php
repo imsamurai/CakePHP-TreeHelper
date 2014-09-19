@@ -12,7 +12,7 @@ App::uses('TreeCollectionNode', 'TreeHelper.Lib/Tree');
  * TreeCollection
  * 
  * @package TreeHelper
- * @subpackage Lib.Tree
+ * @subpackage Tree
  */
 class TreeCollection implements IteratorAggregate, Countable, JsonSerializable {
 

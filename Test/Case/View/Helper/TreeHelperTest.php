@@ -16,7 +16,7 @@ App::uses('TreeHelper', 'TreeHelper.View/Helper');
  * @property TreeHelper $TreeHelper
  * 
  * @package TreeHelperTest
- * @subpackage TreeHelper
+ * @subpackage View.Helper
  */
 class TreeHelperTest extends CakeTestCase {
 
@@ -184,11 +184,24 @@ class TreeHelperTest extends CakeTestCase {
 
 /**
  * Testing data object
+ * 
+ * @package TreeHelperTest
+ * @subpackage View.Helper
  */
 class TreeHelperTestObject {
 
+	/**
+	 * Storage
+	 *
+	 * @var array 
+	 */
 	protected $_data;
 
+	/**
+	 * Constructor
+	 * 
+	 * @param array $data
+	 */
 	public function __construct($data) {
 		foreach ($data['childrens'] as &$child) {
 			$child = new static($child);
@@ -196,6 +209,12 @@ class TreeHelperTestObject {
 		$this->_data = $data;
 	}
 
+	/**
+	 * Factory
+	 * 
+	 * @param array $array
+	 * @return TreeHelperTestObject
+	 */
 	public static function create($array) {
 		foreach ($array as &$item) {
 			$item = new static($item);
@@ -203,10 +222,20 @@ class TreeHelperTestObject {
 		return $array;
 	}
 
+	/**
+	 * Name getter
+	 * 
+	 * @return string
+	 */
 	public function name() {
 		return $this->_data['name'];
 	}
 
+	/**
+	 * Childrens getter
+	 * 
+	 * @return array
+	 */
 	public function childrens() {
 		return $this->_data['childrens'];
 	}

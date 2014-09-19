@@ -13,7 +13,7 @@ App::uses('TreeCollection', 'TreeHelper.Lib/Tree');
  * TreeCollectionNodeTest
  * 
  * @package TreeHelperTest
- * @subpackage Lib.Tree
+ * @subpackage Tree
  */
 class TreeCollectionNodeTest extends CakeTestCase {
 

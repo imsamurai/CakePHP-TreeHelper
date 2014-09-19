@@ -11,7 +11,7 @@ App::uses('TreeCollection', 'TreeHelper.Lib/Tree');
  * TreeCollection node
  * 
  * @package TreeHelper
- * @subpackage Lib.Tree
+ * @subpackage Tree
  */
 class TreeCollectionNode implements JsonSerializable {
 
