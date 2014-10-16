@@ -84,7 +84,7 @@ class TreeCollectionTest extends CakeTestCase {
 		$this->assertSame($equals, $Tree1->isEquals($Tree2));
 		$this->assertSame($equals, $Tree2->isEquals($Tree1));
 	}
-	
+
 	/**
 	 * Test nodes filter
 	 * 
@@ -97,7 +97,7 @@ class TreeCollectionTest extends CakeTestCase {
 	public function testFilter(callable $filter, TreeCollection $Tree, TreeCollection $OutputTree) {
 		$this->assertTrue($OutputTree->isEquals($Tree->filter($filter)));
 	}
-	
+
 	/**
 	 * Test nodes recursive filter
 	 * 
@@ -110,7 +110,7 @@ class TreeCollectionTest extends CakeTestCase {
 	public function testFilterRecursive(callable $filter, TreeCollection $Tree, TreeCollection $OutputTree) {
 		$this->assertTrue($OutputTree->isEquals($Tree->filterRecursive($filter)));
 	}
-	
+
 	/**
 	 * Test nodes recursive reverse filter
 	 * 
@@ -123,7 +123,7 @@ class TreeCollectionTest extends CakeTestCase {
 	public function testFilterRecursiveReverse(callable $filter, TreeCollection $Tree, TreeCollection $OutputTree) {
 		$this->assertTrue($OutputTree->isEquals($Tree->filterRecursiveReverse($filter)));
 	}
-	
+
 	/**
 	 * Test remove node from tree
 	 * 
@@ -135,6 +135,32 @@ class TreeCollectionTest extends CakeTestCase {
 	 */
 	public function testRemove(TreeCollection $Tree, TreeCollectionNode $Node, TreeCollection $OutputTree) {
 		$this->assertTrue($Tree->remove($Node)->isEquals($OutputTree));
+	}
+
+	/**
+	 * Test nodes multisort
+	 * 
+	 * @param string|array $params
+	 * @param TreeCollection $Tree
+	 * @param TreeCollection $OutputTree
+	 * 
+	 * @dataProvider multisortProvider
+	 */
+	public function testMultisort($params, TreeCollection $Tree, TreeCollection $OutputTree) {
+		$this->assertTrue($OutputTree->isEquals($Tree->multisort($params)));
+	}
+
+	/**
+	 * Test nodes recursive filter
+	 * 
+	 * @param string|array $params
+	 * @param TreeCollection $Tree
+	 * @param TreeCollection $OutputTree
+	 * 
+	 * @dataProvider multisortRecursiveProvider
+	 */
+	public function testMultisortRecursive($params, TreeCollection $Tree, TreeCollection $OutputTree) {
+		$this->assertTrue($OutputTree->isEquals($Tree->multisortRecursive($params)));
 	}
 
 	/**
@@ -342,7 +368,7 @@ class TreeCollectionTest extends CakeTestCase {
 			),
 		);
 	}
-	
+
 	/**
 	 * Data provider for testFilter
 	 * 
@@ -352,11 +378,11 @@ class TreeCollectionTest extends CakeTestCase {
 		$filter1 = function(TreeCollectionNode $Node) {
 			return $Node->getElement() === 1;
 		};
-		
+
 		$filter2 = function(TreeCollectionNode $Node) {
 			return $Node->getElement() !== 1;
 		};
-		
+
 		$ComplexTree1 = function() {
 			$Node1 = new TreeCollectionNode(1);
 			$Node2 = new TreeCollectionNode(2);
@@ -367,7 +393,7 @@ class TreeCollectionTest extends CakeTestCase {
 			$Node1->addChildren($Node3);
 			return (new TreeCollection)->add($Node1);
 		};
-		
+
 		$OutputComplexTree1filter1 = function() {
 			$Node1 = new TreeCollectionNode(1);
 			$Node2 = new TreeCollectionNode(2);
@@ -378,7 +404,7 @@ class TreeCollectionTest extends CakeTestCase {
 			$Node1->addChildren($Node3);
 			return (new TreeCollection)->add($Node1);
 		};
-		
+
 		$OutputComplexTree1filter2 = function() {
 			return new TreeCollection;
 		};
@@ -387,7 +413,7 @@ class TreeCollectionTest extends CakeTestCase {
 			//set #0
 			array(
 				//filter
-				function() { 
+				function() {
 					return true;
 				},
 				//Tree
@@ -398,8 +424,8 @@ class TreeCollectionTest extends CakeTestCase {
 			//set #1
 			array(
 				//filter
-				function() { 
-					return true; 
+				function() {
+					return true;
 				},
 				//Tree
 				new TreeCollection(array(1, 2, 3)),
@@ -409,8 +435,8 @@ class TreeCollectionTest extends CakeTestCase {
 			//set #2
 			array(
 				//filter
-				function() { 
-					return false; 
+				function() {
+					return false;
 				},
 				//Tree
 				new TreeCollection(array(1, 2, 3)),
@@ -420,8 +446,8 @@ class TreeCollectionTest extends CakeTestCase {
 			//set #3
 			array(
 				//filter
-				function(TreeCollectionNode $Node) { 
-					return $Node->getElement() !== 2; 
+				function(TreeCollectionNode $Node) {
+					return $Node->getElement() !== 2;
 				},
 				//Tree
 				new TreeCollection(array(1, 2, 3)),
@@ -448,7 +474,7 @@ class TreeCollectionTest extends CakeTestCase {
 			),
 		);
 	}
-	
+
 	/**
 	 * Data provider for testFilterRecursive
 	 * 
@@ -458,15 +484,15 @@ class TreeCollectionTest extends CakeTestCase {
 		$filter1 = function(TreeCollectionNode $Node) {
 			return $Node->getElement() === 1;
 		};
-		
+
 		$filter2 = function(TreeCollectionNode $Node) {
 			return $Node->getElement() !== 1;
 		};
-		
+
 		$filter3 = function(TreeCollectionNode $Node) {
 			return !$Node->hasParent() || $Node->getParent()->getElement() <= 1;
 		};
-		
+
 		$ComplexTree1 = function() {
 			$Node1 = new TreeCollectionNode(1);
 			$Node2 = new TreeCollectionNode(2);
@@ -477,16 +503,16 @@ class TreeCollectionTest extends CakeTestCase {
 			$Node1->addChildren($Node3);
 			return (new TreeCollection)->add($Node1);
 		};
-		
+
 		$OutputComplexTree1filter1 = function() {
 			$Node1 = new TreeCollectionNode(1);
 			return (new TreeCollection)->add($Node1);
 		};
-		
+
 		$OutputComplexTree1filter2 = function() {
 			return new TreeCollection;
 		};
-		
+
 		$OutputComplexTree1filter3 = function() {
 			$Node1 = new TreeCollectionNode(1);
 			$Node2 = new TreeCollectionNode(2);
@@ -500,8 +526,8 @@ class TreeCollectionTest extends CakeTestCase {
 			//set #0
 			array(
 				//filter
-				function() { 
-					return true; 
+				function() {
+					return true;
 				},
 				//Tree
 				new TreeCollection,
@@ -511,8 +537,8 @@ class TreeCollectionTest extends CakeTestCase {
 			//set #1
 			array(
 				//filter
-				function() { 
-					return true; 
+				function() {
+					return true;
 				},
 				//Tree
 				new TreeCollection(array(1, 2, 3)),
@@ -522,8 +548,8 @@ class TreeCollectionTest extends CakeTestCase {
 			//set #2
 			array(
 				//filter
-				function() { 
-					return false; 
+				function() {
+					return false;
 				},
 				//Tree
 				new TreeCollection(array(1, 2, 3)),
@@ -533,8 +559,8 @@ class TreeCollectionTest extends CakeTestCase {
 			//set #3
 			array(
 				//filter
-				function(TreeCollectionNode $Node) { 
-					return $Node->getElement() !== 2; 
+				function(TreeCollectionNode $Node) {
+					return $Node->getElement() !== 2;
 				},
 				//Tree
 				new TreeCollection(array(1, 2, 3)),
@@ -607,7 +633,7 @@ class TreeCollectionTest extends CakeTestCase {
 			),
 		);
 	}
-	
+
 	/**
 	 * Data provider for testFilterRecursiveReverse
 	 * 
@@ -617,19 +643,19 @@ class TreeCollectionTest extends CakeTestCase {
 		$filter1 = function(TreeCollectionNode $Node) {
 			return $Node->getElement() === 1;
 		};
-		
+
 		$filter2 = function(TreeCollectionNode $Node) {
 			return $Node->getElement() !== 1;
 		};
-		
+
 		$filter3 = function(TreeCollectionNode $Node) {
 			if ($Node->getElement() == 4) {
-				return false;				
+				return false;
 			} else {
 				return $Node->hasChildrens();
 			}
 		};
-		
+
 		$ComplexTree1 = function() {
 			$Node1 = new TreeCollectionNode(1);
 			$Node2 = new TreeCollectionNode(2);
@@ -640,16 +666,16 @@ class TreeCollectionTest extends CakeTestCase {
 			$Node1->addChildren($Node3);
 			return (new TreeCollection)->add($Node1);
 		};
-		
+
 		$OutputComplexTree1filter1 = function() {
 			$Node1 = new TreeCollectionNode(1);
 			return (new TreeCollection)->add($Node1);
 		};
-		
+
 		$OutputComplexTree1filter2 = function() {
 			return new TreeCollection;
 		};
-		
+
 		$OutputComplexTree1filter3 = function() {
 			return new TreeCollection;
 		};
@@ -658,8 +684,8 @@ class TreeCollectionTest extends CakeTestCase {
 			//set #0
 			array(
 				//filter
-				function() { 
-					return true; 
+				function() {
+					return true;
 				},
 				//Tree
 				new TreeCollection,
@@ -669,8 +695,8 @@ class TreeCollectionTest extends CakeTestCase {
 			//set #1
 			array(
 				//filter
-				function() { 
-					return true; 
+				function() {
+					return true;
 				},
 				//Tree
 				new TreeCollection(array(1, 2, 3)),
@@ -680,8 +706,8 @@ class TreeCollectionTest extends CakeTestCase {
 			//set #2
 			array(
 				//filter
-				function() { 
-					return false; 
+				function() {
+					return false;
 				},
 				//Tree
 				new TreeCollection(array(1, 2, 3)),
@@ -691,8 +717,8 @@ class TreeCollectionTest extends CakeTestCase {
 			//set #3
 			array(
 				//filter
-				function(TreeCollectionNode $Node) { 
-					return $Node->getElement() !== 2; 
+				function(TreeCollectionNode $Node) {
+					return $Node->getElement() !== 2;
 				},
 				//Tree
 				new TreeCollection(array(1, 2, 3)),
@@ -728,4 +754,155 @@ class TreeCollectionTest extends CakeTestCase {
 			),
 		);
 	}
+
+	/**
+	 * Data provider for testMultisort
+	 * 
+	 * @return array
+	 */
+	public function multisortProvider() {
+		$ComplexTree1 = function() {
+			$Node1 = new TreeCollectionNode(array('weight' => 1));
+			$Node11 = new TreeCollectionNode(array('weight' => 11));
+			$Node2 = new TreeCollectionNode(array('weight' => 2));
+			$Node3 = new TreeCollectionNode(array('weight' => 3));
+			$Node4 = new TreeCollectionNode(array('weight' => 5));
+			$Node3->addChildren($Node4);
+			$Node1->addChildren($Node2);
+			$Node1->addChildren($Node3);
+			return (new TreeCollection)->add($Node1)->add($Node11);
+		};
+
+		$OutputComplexTree1 = function() {
+			$Node1 = new TreeCollectionNode(array('weight' => 1));
+			$Node11 = new TreeCollectionNode(array('weight' => 11));
+			$Node2 = new TreeCollectionNode(array('weight' => 2));
+			$Node3 = new TreeCollectionNode(array('weight' => 3));
+			$Node4 = new TreeCollectionNode(array('weight' => 5));
+			$Node3->addChildren($Node4);
+			$Node1->addChildren($Node2);
+			$Node1->addChildren($Node3);
+			return (new TreeCollection)->add($Node11/* ! */)->add($Node1/* ! */);
+		};
+
+		return array(
+			//set #0
+			array(
+				//params
+				array(),
+				//Tree
+				new TreeCollection,
+				//OutputTree
+				new TreeCollection,
+			),
+			//set #1
+			array(
+				//params
+				'asc',
+				//Tree
+				new TreeCollection(array(3, 1, 2)),
+				//OutputTree
+				new TreeCollection(array(1, 2, 3)),
+			),
+			//set #2
+			array(
+				//params
+				'desc',
+				//Tree
+				new TreeCollection(array(1, 2, 3)),
+				//OutputTree
+				new TreeCollection(array(3, 2, 1)),
+			),
+			//set #3
+			array(
+				//params
+				array(array(
+						'field' => function($Node) {
+							return $Node->getElement()['weight'];
+						},
+						'order' => 'desc'
+					)),
+				//Tree
+				$ComplexTree1(),
+				//OutputTree
+				$OutputComplexTree1(),
+			),
+		);
+	}
+
+	/**
+	 * Data provider for testMultisortRecursive
+	 * 
+	 * @return array
+	 */
+	public function multisortRecursiveProvider() {
+		$ComplexTree1 = function() {
+			$Node1 = new TreeCollectionNode(array('weight' => 1));
+			$Node11 = new TreeCollectionNode(array('weight' => 11));
+			$Node2 = new TreeCollectionNode(array('weight' => 2));
+			$Node3 = new TreeCollectionNode(array('weight' => 3));
+			$Node4 = new TreeCollectionNode(array('weight' => 5));
+			$Node3->addChildren($Node4);
+			$Node1->addChildren($Node2);
+			$Node1->addChildren($Node3);
+			return (new TreeCollection)->add($Node1)->add($Node11);
+		};
+
+		$OutputComplexTree1 = function() {
+			$Node1 = new TreeCollectionNode(array('weight' => 1));
+			$Node11 = new TreeCollectionNode(array('weight' => 11));
+			$Node2 = new TreeCollectionNode(array('weight' => 2));
+			$Node3 = new TreeCollectionNode(array('weight' => 3));
+			$Node4 = new TreeCollectionNode(array('weight' => 5));
+			$Node3->addChildren($Node4);
+			$Node1->addChildren($Node3/* ! */);
+			$Node1->addChildren($Node2/* ! */);
+			return (new TreeCollection)->add($Node11/* ! */)->add($Node1/* ! */);
+		};
+
+		return array(
+			//set #0
+			array(
+				//params
+				array(),
+				//Tree
+				new TreeCollection,
+				//OutputTree
+				new TreeCollection,
+			),
+			//set #1
+			array(
+				//params
+				'asc',
+				//Tree
+				new TreeCollection(array(3, 1, 2)),
+				//OutputTree
+				new TreeCollection(array(1, 2, 3)),
+			),
+			//set #2
+			array(
+				//params
+				'desc',
+				//Tree
+				new TreeCollection(array(1, 2, 3)),
+				//OutputTree
+				new TreeCollection(array(3, 2, 1)),
+			),
+			//set #3
+			array(
+				//params
+				array(array(
+						'field' => function($Node) {
+							return $Node->getElement()['weight'];
+						},
+						'order' => 'desc'
+					)),
+				//Tree
+				$ComplexTree1(),
+				//OutputTree
+				$OutputComplexTree1(),
+			),
+		);
+	}
+
 }

@@ -174,6 +174,34 @@ class TreeCollection implements IteratorAggregate, Countable, JsonSerializable {
 	}
 	
 	/**
+	 * Apply multisort to current nodes
+	 * 
+	 * @param array|string $params
+	 * @return TreeCollection
+	 */
+	public function multisort($params) {
+		return (new static)
+				->setNodes($this
+						->getNodes()
+						->multisort($params, false)
+						);
+	}
+	
+	/**
+	 * Apply multisort to current nodes and all children nodes
+	 * 
+	 * @param array|string $params
+	 * @return TreeCollection
+	 */
+	public function multisortRecursive($params) {
+		$Tree = $this->multisort($params);
+		foreach ($Tree as $Node) {
+			$Node->setChildrens($Node->getChildrens()->multisortRecursive($params));
+		}
+		return $Tree;
+	}
+	
+	/**
 	 * Returns true if current tree is equals to $Tree
 	 * 
 	 * @param TreeCollection $Tree
