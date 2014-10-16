@@ -20,119 +20,119 @@
 <path fill="none" stroke="gray" d="M398,-58C398,-52 404,-46 410,-46"/>
 <text text-anchor="middle" x="489" y="-484.1" font-family="Times Roman,serif" font-size="11.00" fill="gray">Global</text>
 </g>
-<!-- \\TreeHelper -->
-<g id="node2" class="node"><title>\\TreeHelper</title>
-<polygon fill="none" stroke="black" points="531,-468 447,-468 447,-432 531,-432 531,-468"/>
-<text text-anchor="middle" x="489" y="-447.1" font-family="Courier,monospace" font-size="11.00">TreeHelper</text>
+<!-- \\AllTreeHelperTest -->
+<g id="node2" class="node"><title>\\AllTreeHelperTest</title>
+<polygon fill="none" stroke="black" points="554,-468 424,-468 424,-432 554,-432 554,-468"/>
+<text text-anchor="middle" x="489" y="-447.1" font-family="Courier,monospace" font-size="11.00">AllTreeHelperTest</text>
 </g>
-<!-- \\AppHelper -->
-<g id="node11" class="node"><title>\\AppHelper</title>
-<ellipse fill="none" stroke="black" cx="167" cy="-450" rx="65.0538" ry="18.3848"/>
-<text text-anchor="middle" x="167" y="-446.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\AppHelper</text>
+<!-- \\PHPUnit_Framework_TestSuite -->
+<g id="node11" class="node"><title>\\PHPUnit_Framework_TestSuite</title>
+<ellipse fill="none" stroke="black" cx="167" cy="-450" rx="166.877" ry="18.3848"/>
+<text text-anchor="middle" x="167" y="-446.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\PHPUnit_Framework_TestSuite</text>
 </g>
-<!-- \\TreeHelper&#45;&gt;\\AppHelper -->
-<g id="edge3" class="edge"><title>\\TreeHelper&#45;&gt;\\AppHelper</title>
-<path fill="none" stroke="black" d="M446.904,-450C395.042,-450 305.989,-450 242.252,-450"/>
-<polygon fill="none" stroke="black" points="242.249,-446.5 232.249,-450 242.249,-453.5 242.249,-446.5"/>
+<!-- \\AllTreeHelperTest&#45;&gt;\\PHPUnit_Framework_TestSuite -->
+<g id="edge3" class="edge"><title>\\AllTreeHelperTest&#45;&gt;\\PHPUnit_Framework_TestSuite</title>
+<path fill="none" stroke="black" d="M423.45,-450C400.093,-450 372.541,-450 344.312,-450"/>
+<polygon fill="none" stroke="black" points="344.305,-446.5 334.305,-450 344.305,-453.5 344.305,-446.5"/>
 </g>
-<!-- \\TreeHelperTest -->
-<g id="node3" class="node"><title>\\TreeHelperTest</title>
-<polygon fill="none" stroke="black" points="544,-414 434,-414 434,-378 544,-378 544,-414"/>
-<text text-anchor="middle" x="489" y="-393.1" font-family="Courier,monospace" font-size="11.00">TreeHelperTest</text>
+<!-- \\TreeCollectionNodeTest -->
+<g id="node3" class="node"><title>\\TreeCollectionNodeTest</title>
+<polygon fill="none" stroke="black" points="571,-414 407,-414 407,-378 571,-378 571,-414"/>
+<text text-anchor="middle" x="489" y="-393.1" font-family="Courier,monospace" font-size="11.00">TreeCollectionNodeTest</text>
 </g>
 <!-- \\CakeTestCase -->
 <g id="node13" class="node"><title>\\CakeTestCase</title>
-<ellipse fill="none" stroke="black" cx="167" cy="-288" rx="82.0244" ry="18.3848"/>
-<text text-anchor="middle" x="167" y="-284.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\CakeTestCase</text>
+<ellipse fill="none" stroke="black" cx="167" cy="-342" rx="82.0244" ry="18.3848"/>
+<text text-anchor="middle" x="167" y="-338.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\CakeTestCase</text>
 </g>
-<!-- \\TreeHelperTest&#45;&gt;\\CakeTestCase -->
-<g id="edge5" class="edge"><title>\\TreeHelperTest&#45;&gt;\\CakeTestCase</title>
-<path fill="none" stroke="black" d="M433.042,-379.865C421.427,-376.385 409.289,-372.652 398,-369 336.089,-348.974 265.605,-323.929 218.948,-307.031"/>
-<polygon fill="none" stroke="black" points="219.959,-303.675 209.365,-303.554 217.571,-310.255 219.959,-303.675"/>
-</g>
-<!-- \\TreeHelperTestObject -->
-<g id="node4" class="node"><title>\\TreeHelperTestObject</title>
-<polygon fill="none" stroke="black" points="565,-360 413,-360 413,-324 565,-324 565,-360"/>
-<text text-anchor="middle" x="489" y="-339.1" font-family="Courier,monospace" font-size="11.00">TreeHelperTestObject</text>
+<!-- \\TreeCollectionNodeTest&#45;&gt;\\CakeTestCase -->
+<g id="edge5" class="edge"><title>\\TreeCollectionNodeTest&#45;&gt;\\CakeTestCase</title>
+<path fill="none" stroke="black" d="M406.495,-382.164C355.853,-373.671 291.493,-362.878 242.248,-354.619"/>
+<polygon fill="none" stroke="black" points="242.736,-351.152 232.294,-352.95 241.578,-358.056 242.736,-351.152"/>
 </g>
 <!-- \\TreeCollectionTest -->
-<g id="node5" class="node"><title>\\TreeCollectionTest</title>
-<polygon fill="none" stroke="black" points="558,-306 420,-306 420,-270 558,-270 558,-306"/>
-<text text-anchor="middle" x="489" y="-285.1" font-family="Courier,monospace" font-size="11.00">TreeCollectionTest</text>
+<g id="node4" class="node"><title>\\TreeCollectionTest</title>
+<polygon fill="none" stroke="black" points="558,-360 420,-360 420,-324 558,-324 558,-360"/>
+<text text-anchor="middle" x="489" y="-339.1" font-family="Courier,monospace" font-size="11.00">TreeCollectionTest</text>
 </g>
 <!-- \\TreeCollectionTest&#45;&gt;\\CakeTestCase -->
 <g id="edge7" class="edge"><title>\\TreeCollectionTest&#45;&gt;\\CakeTestCase</title>
-<path fill="none" stroke="black" d="M419.923,-288C372.974,-288 310.341,-288 259.15,-288"/>
-<polygon fill="none" stroke="black" points="259.073,-284.5 249.073,-288 259.073,-291.5 259.073,-284.5"/>
+<path fill="none" stroke="black" d="M419.923,-342C372.974,-342 310.341,-342 259.15,-342"/>
+<polygon fill="none" stroke="black" points="259.073,-338.5 249.073,-342 259.073,-345.5 259.073,-338.5"/>
 </g>
-<!-- \\TreeCollectionNodeTest -->
-<g id="node6" class="node"><title>\\TreeCollectionNodeTest</title>
-<polygon fill="none" stroke="black" points="571,-252 407,-252 407,-216 571,-216 571,-252"/>
-<text text-anchor="middle" x="489" y="-231.1" font-family="Courier,monospace" font-size="11.00">TreeCollectionNodeTest</text>
+<!-- \\TreeHelperTest -->
+<g id="node5" class="node"><title>\\TreeHelperTest</title>
+<polygon fill="none" stroke="black" points="544,-306 434,-306 434,-270 544,-270 544,-306"/>
+<text text-anchor="middle" x="489" y="-285.1" font-family="Courier,monospace" font-size="11.00">TreeHelperTest</text>
 </g>
-<!-- \\TreeCollectionNodeTest&#45;&gt;\\CakeTestCase -->
-<g id="edge9" class="edge"><title>\\TreeCollectionNodeTest&#45;&gt;\\CakeTestCase</title>
-<path fill="none" stroke="black" d="M406.495,-247.836C355.853,-256.329 291.493,-267.122 242.248,-275.381"/>
-<polygon fill="none" stroke="black" points="241.578,-271.944 232.294,-277.05 242.736,-278.848 241.578,-271.944"/>
+<!-- \\TreeHelperTest&#45;&gt;\\CakeTestCase -->
+<g id="edge9" class="edge"><title>\\TreeHelperTest&#45;&gt;\\CakeTestCase</title>
+<path fill="none" stroke="black" d="M433.279,-297.344C380.446,-306.205 300.676,-319.582 242.218,-329.386"/>
+<polygon fill="none" stroke="black" points="241.579,-325.944 232.296,-331.05 242.737,-332.848 241.579,-325.944"/>
 </g>
-<!-- \\AllTreeHelperTest -->
-<g id="node7" class="node"><title>\\AllTreeHelperTest</title>
-<polygon fill="none" stroke="black" points="554,-198 424,-198 424,-162 554,-162 554,-198"/>
-<text text-anchor="middle" x="489" y="-177.1" font-family="Courier,monospace" font-size="11.00">AllTreeHelperTest</text>
-</g>
-<!-- \\PHPUnit_Framework_TestSuite -->
-<g id="node17" class="node"><title>\\PHPUnit_Framework_TestSuite</title>
-<ellipse fill="none" stroke="black" cx="167" cy="-180" rx="166.877" ry="18.3848"/>
-<text text-anchor="middle" x="167" y="-176.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\PHPUnit_Framework_TestSuite</text>
-</g>
-<!-- \\AllTreeHelperTest&#45;&gt;\\PHPUnit_Framework_TestSuite -->
-<g id="edge11" class="edge"><title>\\AllTreeHelperTest&#45;&gt;\\PHPUnit_Framework_TestSuite</title>
-<path fill="none" stroke="black" d="M423.45,-180C400.093,-180 372.541,-180 344.312,-180"/>
-<polygon fill="none" stroke="black" points="344.305,-176.5 334.305,-180 344.305,-183.5 344.305,-176.5"/>
+<!-- \\TreeHelperTestObject -->
+<g id="node6" class="node"><title>\\TreeHelperTestObject</title>
+<polygon fill="none" stroke="black" points="565,-252 413,-252 413,-216 565,-216 565,-252"/>
+<text text-anchor="middle" x="489" y="-231.1" font-family="Courier,monospace" font-size="11.00">TreeHelperTestObject</text>
 </g>
 <!-- \\TreeCollectionNode -->
-<g id="node8" class="node"><title>\\TreeCollectionNode</title>
-<polygon fill="none" stroke="black" points="558,-144 420,-144 420,-108 558,-108 558,-144"/>
-<text text-anchor="middle" x="489" y="-123.1" font-family="Courier,monospace" font-size="11.00">TreeCollectionNode</text>
+<g id="node7" class="node"><title>\\TreeCollectionNode</title>
+<polygon fill="none" stroke="black" points="558,-198 420,-198 420,-162 558,-162 558,-198"/>
+<text text-anchor="middle" x="489" y="-177.1" font-family="Courier,monospace" font-size="11.00">TreeCollectionNode</text>
 </g>
 <!-- \\JsonSerializable -->
-<g id="node19" class="node"><title>\\JsonSerializable</title>
-<ellipse fill="none" stroke="black" cx="167" cy="-126" rx="91.2168" ry="18.3848"/>
-<text text-anchor="middle" x="167" y="-122.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\JsonSerializable</text>
+<g id="node17" class="node"><title>\\JsonSerializable</title>
+<ellipse fill="none" stroke="black" cx="167" cy="-180" rx="91.2168" ry="18.3848"/>
+<text text-anchor="middle" x="167" y="-176.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\JsonSerializable</text>
 </g>
 <!-- \\TreeCollectionNode&#45;&gt;\\JsonSerializable -->
-<g id="edge13" class="edge"><title>\\TreeCollectionNode&#45;&gt;\\JsonSerializable</title>
-<path fill="none" stroke="black" stroke-dasharray="1,5" d="M419.923,-126C375.751,-126 317.697,-126 268.35,-126"/>
-<polygon fill="none" stroke="black" points="268.283,-122.5 258.282,-126 268.282,-129.5 268.283,-122.5"/>
+<g id="edge11" class="edge"><title>\\TreeCollectionNode&#45;&gt;\\JsonSerializable</title>
+<path fill="none" stroke="black" stroke-dasharray="1,5" d="M419.923,-180C375.751,-180 317.697,-180 268.35,-180"/>
+<polygon fill="none" stroke="black" points="268.283,-176.5 258.282,-180 268.282,-183.5 268.283,-176.5"/>
 </g>
 <!-- \\TreeCollection -->
-<g id="node9" class="node"><title>\\TreeCollection</title>
-<polygon fill="none" stroke="black" points="544,-90 434,-90 434,-54 544,-54 544,-90"/>
-<text text-anchor="middle" x="489" y="-69.1" font-family="Courier,monospace" font-size="11.00">TreeCollection</text>
+<g id="node8" class="node"><title>\\TreeCollection</title>
+<polygon fill="none" stroke="black" points="544,-144 434,-144 434,-108 544,-108 544,-144"/>
+<text text-anchor="middle" x="489" y="-123.1" font-family="Courier,monospace" font-size="11.00">TreeCollection</text>
 </g>
 <!-- \\TreeCollection&#45;&gt;\\JsonSerializable -->
-<g id="edge19" class="edge"><title>\\TreeCollection&#45;&gt;\\JsonSerializable</title>
-<path fill="none" stroke="black" stroke-dasharray="1,5" d="M433.43,-81.8487C403.908,-87.0381 366.999,-93.4586 334,-99 306.011,-103.7 275.357,-108.699 248.039,-113.101"/>
-<polygon fill="none" stroke="black" points="247.453,-109.651 238.136,-114.695 248.565,-116.562 247.453,-109.651"/>
+<g id="edge17" class="edge"><title>\\TreeCollection&#45;&gt;\\JsonSerializable</title>
+<path fill="none" stroke="black" stroke-dasharray="1,5" d="M433.43,-135.849C403.908,-141.038 366.999,-147.459 334,-153 306.011,-157.7 275.357,-162.699 248.039,-167.101"/>
+<polygon fill="none" stroke="black" points="247.453,-163.651 238.136,-168.695 248.565,-170.562 247.453,-163.651"/>
 </g>
 <!-- \\IteratorAggregate -->
-<g id="node21" class="node"><title>\\IteratorAggregate</title>
-<ellipse fill="none" stroke="black" cx="167" cy="-72" rx="103.238" ry="18.3848"/>
-<text text-anchor="middle" x="167" y="-68.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\IteratorAggregate</text>
+<g id="node19" class="node"><title>\\IteratorAggregate</title>
+<ellipse fill="none" stroke="black" cx="167" cy="-126" rx="103.238" ry="18.3848"/>
+<text text-anchor="middle" x="167" y="-122.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\IteratorAggregate</text>
 </g>
 <!-- \\TreeCollection&#45;&gt;\\IteratorAggregate -->
-<g id="edge15" class="edge"><title>\\TreeCollection&#45;&gt;\\IteratorAggregate</title>
-<path fill="none" stroke="black" stroke-dasharray="1,5" d="M433.279,-72C391.26,-72 332.204,-72 280.381,-72"/>
-<polygon fill="none" stroke="black" points="280.121,-68.5001 270.121,-72 280.12,-75.5001 280.121,-68.5001"/>
+<g id="edge13" class="edge"><title>\\TreeCollection&#45;&gt;\\IteratorAggregate</title>
+<path fill="none" stroke="black" stroke-dasharray="1,5" d="M433.279,-126C391.26,-126 332.204,-126 280.381,-126"/>
+<polygon fill="none" stroke="black" points="280.121,-122.5 270.121,-126 280.12,-129.5 280.121,-122.5"/>
 </g>
 <!-- \\Countable -->
-<g id="node23" class="node"><title>\\Countable</title>
-<ellipse fill="none" stroke="black" cx="167" cy="-18" rx="65.0538" ry="18.3848"/>
-<text text-anchor="middle" x="167" y="-14.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\Countable</text>
+<g id="node21" class="node"><title>\\Countable</title>
+<ellipse fill="none" stroke="black" cx="167" cy="-72" rx="65.0538" ry="18.3848"/>
+<text text-anchor="middle" x="167" y="-68.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\Countable</text>
 </g>
 <!-- \\TreeCollection&#45;&gt;\\Countable -->
-<g id="edge17" class="edge"><title>\\TreeCollection&#45;&gt;\\Countable</title>
-<path fill="none" stroke="black" stroke-dasharray="1,5" d="M433.43,-62.1513C403.908,-56.9619 366.999,-50.5414 334,-45 300.952,-39.4502 264.188,-33.4839 233.585,-28.5748"/>
+<g id="edge15" class="edge"><title>\\TreeCollection&#45;&gt;\\Countable</title>
+<path fill="none" stroke="black" stroke-dasharray="1,5" d="M433.43,-116.151C403.908,-110.962 366.999,-104.541 334,-99 300.952,-93.4502 264.188,-87.4839 233.585,-82.5748"/>
+<polygon fill="none" stroke="black" points="233.885,-79.0784 223.458,-80.9527 232.778,-85.9903 233.885,-79.0784"/>
+</g>
+<!-- \\TreeHelper -->
+<g id="node9" class="node"><title>\\TreeHelper</title>
+<polygon fill="none" stroke="black" points="531,-90 447,-90 447,-54 531,-54 531,-90"/>
+<text text-anchor="middle" x="489" y="-69.1" font-family="Courier,monospace" font-size="11.00">TreeHelper</text>
+</g>
+<!-- \\AppHelper -->
+<g id="node24" class="node"><title>\\AppHelper</title>
+<ellipse fill="none" stroke="black" cx="167" cy="-18" rx="65.0538" ry="18.3848"/>
+<text text-anchor="middle" x="167" y="-14.4" font-family="Times Roman,serif" font-size="14.00" fill="gray">\AppHelper</text>
+</g>
+<!-- \\TreeHelper&#45;&gt;\\AppHelper -->
+<g id="edge19" class="edge"><title>\\TreeHelper&#45;&gt;\\AppHelper</title>
+<path fill="none" stroke="black" d="M446.92,-64.5274C415.758,-59.0283 372.252,-51.4235 334,-45 300.952,-39.4502 264.188,-33.4839 233.585,-28.5748"/>
 <polygon fill="none" stroke="black" points="233.885,-25.0784 223.458,-26.9527 232.778,-31.9903 233.885,-25.0784"/>
 </g>
 </g>
